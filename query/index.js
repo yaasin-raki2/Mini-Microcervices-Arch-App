@@ -33,6 +33,6 @@ app.post('/events', (req, res) => {
   res.send({});
 });
 
-app.listen('4002', () => {
+app.listen(4002, () => {
   console.log('Listening on port 4002');
 });
