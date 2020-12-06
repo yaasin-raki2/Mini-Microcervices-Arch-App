@@ -8,5 +8,5 @@ app.use(bodyParser.json());
 app.post('/events', (req, res) => {});
 
 app.listen(4003, () => {
-  console.log('Listening on port 4002');
+  console.log('Listening on port 4003');
 });
