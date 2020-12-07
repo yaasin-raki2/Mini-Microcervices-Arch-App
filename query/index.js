@@ -28,11 +28,23 @@ app.post('/events', (req, res) => {
     post.comments.push({ id, content, status });
   }
 
+  if (type === 'CommentUpdated') {
+    const { id, content, postId, status } = data;
+
+    const post = posts[postId];
+    const comment = post.comments.find(comment => {
+      return comment.id === id;
+    });
+
+    comment.status = status;
+    comment.content = content;
+  }
+
   console.log(posts);
 
   res.send({});
 });
 
 app.listen(4002, () => {
-  console.log('Listening on port 4002');
+  console.log('Listening on 4002');
 });

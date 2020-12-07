@@ -14,8 +14,10 @@ app.post('/events', async (req, res) => {
     await axios.post('http://localhost:4005/events', {
       type: 'CommentModerated',
       data: {
-        ...data,
+        id: data.id,
+        postId: data.postId,
         status,
+        content: data.content,
       },
     });
   }
@@ -24,5 +26,5 @@ app.post('/events', async (req, res) => {
 });
 
 app.listen(4003, () => {
-  console.log('Listening on port 4003');
+  console.log('Listening on 4003');
 });
